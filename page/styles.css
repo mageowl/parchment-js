@@ -1,0 +1,140 @@
+:root {
+	--editor-background: #2a2e44;
+	--element-background: #373d5f;
+	--view-background: #000000;
+	--text: #ffffff;
+	--primary: #ffd12e;
+	--primary-text: #1b1d24;
+	--row-spacing: 15px;
+}
+
+body {
+	background-color: var(--editor-background);
+	color: var(--text);
+	font-family: sans-serif;
+}
+
+button {
+	cursor: pointer;
+	background-color: var(--element-background);
+	color: var(--text);
+	border: none;
+	border-radius: 3px;
+	padding: 8px;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+}
+
+button:active {
+	filter: brightness(0.8);
+	box-shadow: 0 4px 4px #0000006b inset;
+	padding: 12px 8px 4px 8px;
+}
+
+button.primary {
+	background-color: var(--primary);
+	color: var(--primary-text);
+}
+
+span.row {
+	display: block;
+	margin: calc(var(--row-spacing) / 2) 0;
+}
+
+span.material-icons {
+	line-height: 24px;
+	margin-right: 5px;
+}
+
+div.titlebar {
+	display: flex;
+	height: 27px;
+	width: 100vw;
+	align-items: center;
+	justify-content: center;
+	-webkit-app-region: drag;
+	filter: brightness(0.65);
+	transition: filter 200ms;
+}
+
+div.titlebar:hover {
+	filter: brightness(1);
+}
+
+/* Editor only code */
+
+html.window-editor body {
+	margin: 0;
+	height: 100vh;
+}
+
+html.window-editor div#app {
+	display: grid;
+	height: calc(100% - 30px);
+	width: 100%;
+	margin-top: 3px;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(5, 1fr);
+	grid-gap: 3px;
+}
+
+div.editor-container {
+	box-shadow: 0 0 0 3px var(--element-background);
+}
+
+div.editor-container#hierarchy {
+	grid-area: 1 / 1 / 6 / 2;
+}
+
+div.editor-container#inspector {
+	grid-area: 1 / 5 / 6 / 6;
+}
+
+div.editor-container#assets {
+	grid-area: 4 / 2 / 6 / 5;
+}
+
+div.editor-container#assets div.file {
+	display: inline-block;
+	width: 125px;
+	text-align: center;
+	margin: 10px;
+	outline: none;
+	user-select: none;
+}
+
+div.editor-container#assets div.file:focus > span {
+	color: var(--primary);
+}
+
+div.editor-container#assets > div#files {
+	overflow: auto;
+	height: calc(100% - 38px);
+}
+
+div.editor-container#assets > span#breadcrumbs {
+	display: block;
+	margin: 10px;
+	font-size: 18px;
+}
+
+div.editor-container#view {
+	grid-area: 1 / 2 / 4 / 5;
+	background-color: var(--view-background);
+}
+
+/* Startup only code */
+
+html.window-setup body {
+	margin: 35px 10px;
+}
+
+html.window-setup .bottom {
+	position: absolute;
+	bottom: 20px;
+}
+
+html.window-setup .title {
+	display: block;
+}

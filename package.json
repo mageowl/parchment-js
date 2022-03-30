@@ -1,0 +1,19 @@
+{
+	"name": "parchmentjs",
+	"productName": "Parchment JS",
+	"description": "My Electron application description",
+	"keywords": [],
+	"main": "./main.js",
+	"version": "1.0.0",
+	"author": "owl",
+	"scripts": {
+		"start": "electron ."
+	},
+	"devDependencies": {
+		"electron": "^18.0.0-beta.5"
+	},
+	"dependencies": {
+		"acorn": "^8.7.0",
+		"fs-extra": "^10.0.1"
+	}
+}
